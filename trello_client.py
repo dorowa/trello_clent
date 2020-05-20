@@ -104,7 +104,11 @@ def main_menu(printJobsList):
     print(f'+{"="*77}+')
 
 if __name__ == "__main__":
-    auth_params = getJSONdata(config_path)
+    try:
+        auth_params = getJSONdata(config_path)
+    except:
+        print('Ошибка доступа к файлу конфигурации!\nСоздайте правильный конфигурационный файл!')
+        exit()
     command_ = None
     long_board_id = get_long_board_id()
     main_menu([])
