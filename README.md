@@ -18,5 +18,5 @@
 * запустить скрипт в python версии 3:<br>
   python trello.py<br>
 или<br>
-  python3 trello<br>
+  python3 trello.py<br>
   
