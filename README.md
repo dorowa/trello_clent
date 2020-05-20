@@ -15,8 +15,8 @@
 * заполнить данные в файлах:
   * board.py - короткий board_id доски - из ссылки после входа в доску trello, long_board_id - получается из ссылки после входа в доску trello, путем дописывания .json в страоку адреса, в json-ответе сервера, первым полем будет длинный id
   * trello.cfg - json-файл с авторизационными данными для trello, key и token, получить можно на сайте trello, инструкции на сайте.
-* запустить скрипт в python версии 3:
-  python trello.py
-или
-  python3 trello
+* запустить скрипт в python версии 3:<br>
+  python trello.py<br>
+или<br>
+  python3 trello<br>
   
