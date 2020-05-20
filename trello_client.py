@@ -1,10 +1,12 @@
 import requests
 import json
+from board import board_id
+
+long_board_id = 0
 
 base_url = "https://api.trello.com/1/{}"
 config_path = "../trello.cfg"
-board_id = "pF5Bin10"
-long_board_id = '5ebc2f2f7571cb41c74553c6'
+
 auth_params = None
 
 width_ = 77
@@ -41,6 +43,10 @@ def read():
                 index_ += 1
         jobs_list.append({"list_column_idx":column_idx, "id":column['id'], 'name':column['name'],"tasks":tasks_})
         column_idx +=1
+
+def get_long_board_id():
+    response = requests.get(base_url.format('boards/' + board_id), params=auth_params).json()
+    return response['id']
 
 def create_column(column_name):
     requests.post(base_url.format('lists'), data = {'name':column_name, 'idBoard': long_board_id, **auth_params})
@@ -100,6 +106,7 @@ def main_menu(printJobsList):
 if __name__ == "__main__":
     auth_params = getJSONdata(config_path)
     command_ = None
+    long_board_id = get_long_board_id()
     main_menu([])
     read()
     while True:
@@ -158,6 +165,7 @@ if __name__ == "__main__":
                     main_menu(jobs_list)
         elif command_ == "C":
             column_name_ = input("Введите название новой колонки: ")
+            print("Добавляю столбец...")
             create_column(column_name_)
             read()
             main_menu(jobs_list)
