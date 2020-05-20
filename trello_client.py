@@ -1,10 +1,10 @@
 import requests
 import json
+from board import board_id, long_board_id
 
 base_url = "https://api.trello.com/1/{}"
 config_path = "./trello.cfg"
-board_id = "pF5Bin10"
-long_board_id = '5ebc2f2f7571cb41c74553c6'
+
 auth_params = None
 
 width_ = 77
