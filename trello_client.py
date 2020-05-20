@@ -5,7 +5,7 @@ from board import board_id
 long_board_id = 0
 
 base_url = "https://api.trello.com/1/{}"
-config_path = "../trello.cfg"
+config_path = "./trello.cfg"
 
 auth_params = None
 
